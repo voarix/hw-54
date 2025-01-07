@@ -1,7 +1,9 @@
 import "./App.css";
 import createItems from "./createItems.ts";
 import { useState } from "react";
-import Cell from "./components/Cell.tsx";
+import Board from "./components/Board.tsx";
+import AttemptsCounter from "./components/AttemptsCounter.tsx";
+import ResetButton from "./components/ResetButton.tsx";
 
 const App = () => {
   const [items, setItems] = useState(createItems());
@@ -38,19 +40,9 @@ const App = () => {
   return (
     <>
       {message ? <p>{message}</p> : null}
-      <div className="grid">
-        {items.map((item, index) => (
-          <Cell
-            key={index}
-            changeStyle={() => handleClick(index)}
-            clicked={item.clicked}
-            hasItem={item.hasItem}
-          />
-        ))}
-      </div>
-
-      <p>Количество попыток: {items.filter((item) => item.clicked).length}</p>
-      <button onClick={onReset}>Reset</button>
+      <Board items={items} handleClick={handleClick} />
+      <AttemptsCounter items={items}/>
+      <ResetButton onReset={onReset} />
     </>
   );
 };
