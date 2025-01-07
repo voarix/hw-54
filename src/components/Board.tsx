@@ -1,5 +1,5 @@
 import React from "react";
-import Cell from "./Cell.tsx";
+import Cell from "./Cell/Cell.tsx";
 
 interface BoardProps {
   items: { clicked: boolean; hasItem: boolean }[];
