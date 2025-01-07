@@ -6,6 +6,7 @@ import Cell from "./components/Cell.tsx";
 const App = () => {
   const [items, setItems] = useState(createItems());
   const [gameOver, setGameOver] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleClick = (cellId: number) => {
     if (gameOver) {
@@ -19,7 +20,7 @@ const App = () => {
             return { ...item, clicked: true };
           } else {
             setGameOver(true);
-            alert("Вы нашли!");
+            setMessage("Вы нашли элемент!");
             return { ...item, clicked: true };
           }
         }
@@ -31,10 +32,12 @@ const App = () => {
   const onReset = () => {
     setItems(createItems());
     setGameOver(false);
+    setMessage("");
   };
 
   return (
     <>
+      {message ? <p>{message}</p> : null}
       <div className="grid">
         {items.map((item, index) => (
           <Cell

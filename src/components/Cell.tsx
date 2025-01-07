@@ -10,12 +10,18 @@ const Cell: React.FC<CellProps> = ({ hasItem, clicked, changeStyle }) => {
   const cellStyles: React.CSSProperties = {
     width: "70px",
     height: "70px",
-    border: "1px solid red",
-    backgroundColor: clicked ? "white" : "green",
+    border: '1px solid #2980b9',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: clicked ? "#f0f0f0" : "#2c3e50",
+    borderRadius: '8px',
+    transition: 'background-color 0.2s ease',
+    cursor: 'pointer',
   };
 
   if (hasItem && clicked) {
-    cellStyles.backgroundColor = "yellow";
+    cellStyles.backgroundColor = "#2ecc71";
   }
 
   return (
