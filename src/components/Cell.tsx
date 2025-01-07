@@ -10,6 +10,7 @@ const Cell: React.FC<CellProps> = ({ hasItem, clicked, changeStyle }) => {
   const cellStyles: React.CSSProperties = {
     width: "70px",
     height: "70px",
+    border: "1px solid red",
     backgroundColor: clicked ? "white" : "green",
   };
 
